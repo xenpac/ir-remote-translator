@@ -1,0 +1,50 @@
+A quick docu on the IRblaster Device:
+
+There is only one Button to enter commands.
+There are 8 commands. To arrive at a specific command you need to press the button that many times.
+Do that slowly.
+The Statusled will blink that many times so you know how many buttonpresses are detected.
+Once you reached your wanted Menue/Command, press any key on your remote control to enter that command.
+If you press too many times, it will leave the commandentry mode, unless in debug mode.
+
+Commands description:
+
+general concept:
+A remotecontrol sends a code S1 to the Device. Device will try to find that code S1 in its codetable.
+if not found, do nothing.
+if found, transmit replacement code(s) (up to 3) D1(,D2,D3)
+
+So, A remotecontrol code S1 maybe translated into 1,2 or 3 other ir codes D1,D2 or D3
+Menuestatus is indicated by StatusLed blinks.
+
+Menue:
+Blink 1 = learn a single replacement code:  S1 -> D1  (update possible)
+Blink 2 = learn a 2 replacement codes, like power for 2 devices: S1 ->D1 ->D2     (only append possible else error)
+Blink 3 = learn a 3 replacement codes, like power for 3 devices: S1 ->D1 ->D2->D3 (only append possible else error)
+Blink 4 = erase flashtable, press 2 different IRcodes to activate. (all codes are erased!!)
+-- set Debug LED toggle modes: (Disable by PowerOff)
+Blink 5 = LED is toggled each time a valid code was reveied. to test if IR is 38khz and receivable.
+Blink 6 = same as 5, but toggles LED only on code compare match. find same code on different controls, test code recognize.		  
+Blink 7 = toggle LED on 32bit code received. to look for modern codes like NEC!
+Blink 8 = toggle LED on 16bit code received. 
+
+Menue selection:
+The LED will blink the number of times the "learnbutton" was pressed ie. shows menue item.
+to enter that menue item, press any key on the remote control
+-
+Code entering:
+- blink 1 time = prompt to press the remotecontrol code S
+- blink 2 time = prompt to press the replacementcode D1
+if menue 2 
+- blink 3 time = prompt to press the replacementcode D2
+if menue 3
+- blink 4 time = prompt to press the replacementcode D3
+
+on error (flash table full or entered S-code in D1 or D2 or D3)
+	- blink 10 times  return error
+
+- blink 1  = OK
+return success
+
+If you pressed the button more than 8 times just press any remote key to exit.
+DONT press remote keys too fast, this may corrupt the data entry.

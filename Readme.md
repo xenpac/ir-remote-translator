@@ -18,7 +18,7 @@ That raised the desire to develop a **code translater device** that will be able
 - use only one IR remote for all my devices, at least for most of the frequently commands.
 
 ## The Translator
-- i used the Atmega44pa as it was already available in my lab.
+- i used the Atmega48pa as it was already available in my lab.
 - its all interrupt driven so power friendly
 - it can learn codes and store them in its flash memory, even mutlible codes to switch multible devices On/Off.
 - it receives an ircode and looks it up in a codetable to find the replacement codes to send.
@@ -36,17 +36,18 @@ I worked on Windows, for Linux there are also compiler packages available.
 i used the AVR-GCC package from https://gnutoolchains.com/avr/  
 works very good  
 The code is small, just about 2K Bytes.  
-There is a **makefile** for easy usage.  
+There is a **makefile** for easy usage. 
+make clean  =  cleanup   
 make  = compile  
 make flash = flash with avrdude  
 
 ## Other
 I added a **hex-file** so you can flash it right away.
 
-And yes, programably write to flash in Atmega works! _flash_write_page_  
+And yes, programably write to flash in Atmega works! **_flash_write_page_**  
 
 you need a programmer like the **USBASP** to work together with **avrdude**. (see makefile)  
-I added *avrdude* which need to be copied to the ....bin directory to be in the default command-PATH.  
+I added *avrdude* which need to be copied to the \SysGCC\avr\bin directory to be in the default command-PATH.  
 Also added a *schematic* so you can build it yourself.  
 
 
