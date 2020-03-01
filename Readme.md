@@ -36,7 +36,7 @@ I worked on Windows, for Linux there are also compiler packages available.
 i used the AVR-GCC package from https://gnutoolchains.com/avr/  
 works very good  
 The code is small, just about 2K Bytes.  
-There is a **makefile** for easy usage. 
+There is a **makefile** for easy usage.   
 make clean  =  cleanup   
 make  = compile  
 make flash = flash with avrdude  
