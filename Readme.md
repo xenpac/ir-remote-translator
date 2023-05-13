@@ -6,6 +6,8 @@
 
 - uses two IR LEDs to boost output.
 
+-  this software receives and sends IRcodes without LIRc or IRMP like metzhods!!
+
 ## History
 
 For a long time i was using a bunch of remotes to control the SatReceiver, the TV, the Stereo.....  
