@@ -6,7 +6,7 @@
 
 - uses two IR LEDs to boost output.
 
--  this software receives and sends IRcodes without LIRc or IRMP like metzhods!!
+-  this software receives and sends IRcodes without LIRc or IRMP like methods!!
 
 ## History
 
